@@ -1,0 +1,67 @@
+{
+  "employee": [
+    {
+      "name": "Avinash Kumar",
+      "email": "avikumar12@gmail.com",
+      "roadtype": "Rural roads",
+      "pincode": "711101",
+      "district": "Howrah",
+      "state": "West Bengal",
+      "active": true,
+      "lat": 22.518,
+      "lng": 88.3832,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Ankit Kumar",
+      "email": "ankit@gmail.com",
+      "roadtype": "State highways",
+      "pincode": "700089",
+      "district": "South Parangas",
+      "state": "West Bengal"
+    },
+    {
+      "name": "Kartik Kumar",
+      "email": "kartik@gmail.com",
+      "roadtype": "Rural roads",
+      "pincode": "712103",
+      "district": "Hooghly ",
+      "state": "West Bengal",
+      "active": true,
+      "lat": 22.518,
+      "lng": 88.3832,
+      "id": 3
+    },
+    {
+      "id": 4,
+      "name": "Adarsh Kumar",
+      "email": "adarsh@gmail.com",
+      "roadtype": "Expressways",
+      "pincode": "743383",
+      "district": "South 24 Parganas",
+      "state": "West Bengal"
+    },
+    {
+      "id": 5,
+      "name": "Avinash Kumar",
+      "email": "avikumar12@gmail.com",
+      "roadtype": "National highways",
+      "pincode": "700059",
+      "district": "North 24 Parganas",
+      "state": "West Bengal"
+    },
+    {
+      "name": "Ankit Aniket",
+      "email": "aniket@email.com",
+      "roadtype": "State highways",
+      "pincode": "766662",
+      "district": "South Parangas",
+      "state": "West Bengal",
+      "active": true,
+      "lat": 22.4799562,
+      "lng": 88.4058817,
+      "id": 6
+    }
+  ]
+}

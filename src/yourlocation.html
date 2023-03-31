@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+ <!-- Bootstrap Scripts -->
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+crossorigin=""/>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+crossorigin=""></script>
+<style>
+#map { 
+    height: 80vh;
+    width: 50vh;
+    left: 0;
+
+ }
+</style>
+<main>
+<div>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="http://localhost:3000">Admin</a>
+          <a class="nav-item nav-link" href="http://localhost:3000/employee/create">Add</a>
+          <a class="nav-item nav-link disabled" href="#">Disabled</a>
+        </div>
+      </div>
+    </nav>
+</div>
+<div id="map"></div>
+</main>
+<script>
+const map = L.map('map',{attributionControl : false}); 
+// Initializes map
+map.setView([51.505, -0.09], 16); 
+// Sets initial coordinates and zoom level
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+maxZoom: 19,
+attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map); 
+// Sets map data source and associates with map
+let marker, circle;
+navigator.geolocation.watchPosition(success, error);
+function success(pos) {
+const lat = pos.coords.latitude;
+const lng = pos.coords.longitude;
+const accuracy = pos.coords.accuracy;
+if (marker) {
+map.removeLayer(marker);
+map.removeLayer(circle);
+}
+// Removes any existing marker and circule (new ones about to be set)
+marker = L.marker([lat, lng]).addTo(map);
+circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
+// Adds marker to the map and a circle for accuracy
+// Set zoom to boundaries of accuracy circle
+map.setView([lat, lng]);
+// Set map focus to current user position
+}
+function error(err) {
+if (err.code === 1) {
+alert("Please allow geolocation access");
+} else {
+alert("Cannot get current location");
+}
+}
+</script>
+  
+</body>
+</html>
