@@ -62,6 +62,42 @@
       "lat": 22.4799562,
       "lng": 88.4058817,
       "id": 6
+    },
+    {
+      "name": "navigator",
+      "email": "navigator",
+      "roadtype": "State highways",
+      "pincode": "navigator",
+      "district": "navigator",
+      "state": "navigator",
+      "active": true,
+      "lat": 22.4799583,
+      "lng": 88.4059059,
+      "id": 8
+    },
+    {
+      "name": "fsa",
+      "email": "fsa",
+      "roadtype": "National highways",
+      "pincode": "fsa",
+      "district": "fsa",
+      "state": "fsa",
+      "active": true,
+      "lat": 22.480015824979766,
+      "lng": 88.40601044302933,
+      "id": 10
+    },
+    {
+      "name": "avinash",
+      "email": "avinash",
+      "roadtype": "National highways",
+      "pincode": "avinash",
+      "district": "avinash",
+      "state": "avinash",
+      "active": true,
+      "lat": 22.4799495,
+      "lng": 88.4059067,
+      "id": 11
     }
   ]
 }

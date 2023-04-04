@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 
 
+
 const EmpCreate = () => {
-  const [id, idchange] = useState("");
+  const [id] = useState("");
   const [name, namechange] = useState("");
   const [email, emailchange] = useState("");
   const [roadtype, roadtypechange] = useState("");
@@ -16,12 +17,10 @@ const EmpCreate = () => {
   const [lat, latchange] = useState("");
   const [lng, lngchange] = useState("");
 
-
-
   navigator.geolocation.getCurrentPosition(
     (position) => {
-      const lat = position.coords.latitude;
-      const lng = position.coords.longitude;
+       const lat = position.coords.latitude;
+       const lng = position.coords.longitude;
       latchange(lat);
       lngchange(lng);
       handlesubmit(null, lat, lng); // call handlesubmit with lat and lng
@@ -34,11 +33,24 @@ const EmpCreate = () => {
       }
     }
   );
-  const navigate = useNavigate();
+
+  
+
+
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    const empdata = { name, email, roadtype, pincode, district, state, active, lat, lng };
+    const empdata = {
+      name,
+      email,
+      roadtype,
+      pincode,
+      district,
+      state,
+      active,
+      lat,
+      lng,
+    };
 
     fetch("http://localhost:8000/employee", {
       method: "POST",
@@ -47,7 +59,8 @@ const EmpCreate = () => {
     })
       .then((res) => {
         alert("Saved successfully.");
-        navigate("/");
+        // navigate("/");
+         window.location.href = 'http://localhost:4000';
       })
       .catch((err) => {
         console.log(err.message);
@@ -86,7 +99,7 @@ const EmpCreate = () => {
                         onChange={(e) => namechange(e.target.value)}
                         className="form-control"
                       ></input>
-                      {name.length == 0 && validation && (
+                      {name.length === 0 && validation && (
                         <span className="text-danger">Enter the name</span>
                       )}
                     </div>
@@ -169,7 +182,6 @@ const EmpCreate = () => {
                       <label className="form-check-label">Is Active</label>
                     </div>
                   </div>
-
 
                   <div className="col-lg-12">
                     <div className="form-group">
